@@ -16,7 +16,7 @@ function spawnChildProcess(command) {
 
   function killChildProcessOnExit(childProcess) {
     process.on('exit', () => {
-      if (childProcess.kill === 'function') {
+      if (typeof childProcess.kill === 'function') {
         childProcess.kill();
       }
     });
