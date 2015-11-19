@@ -1,0 +1,16 @@
+{
+  "preset": "airbnb",
+  "fileExtensions": [
+    ".js",
+    ".jsx"
+  ],
+  "excludeFiles": [
+    "dist/**",
+    ".publish/**"
+  ],
+  "maximumLineLength": 120,
+  "disallowTrailingComma": true,
+  "requireTrailingComma": null,
+  "requireCamelCaseOrUpperCaseIdentifiers": null,
+  "validateQuoteMarks": null
+}
