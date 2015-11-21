@@ -51,6 +51,22 @@ function makeWebpackConfig() {
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader?limit=10000&mimetype=image/png'
+      },
+      {
+        test: /\.(jpg|jpeg)$/,
+        loader: 'url-loader?limit=10000&mimetype=image/jpeg'
+      },
+      {
+        test: /\.gif$/,
+        loader: 'url-loader?limit=10000&mimetype=image/gif'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
       }
     ]
   };
