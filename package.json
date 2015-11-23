@@ -52,7 +52,6 @@
     "gulp-sitemap": "2.2.0",
     "http-server": "0.8.5",
     "jasmine-core": "2.3.4",
-    "jscs": "2.5.1",
     "karma": "0.13.15",
     "karma-chrome-launcher": "0.2.1",
     "karma-firefox-launcher": "0.1.7",

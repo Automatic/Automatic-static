@@ -1,7 +1,6 @@
 BIN := node_modules/.bin
 BABEL_NODE := $(BIN)/babel-node
 ESLINT := $(BIN)/eslint
-JSCS := $(BIN)/jscs
 GULP := $(BIN)/gulp
 KARMA := $(BIN)/karma
 PROTRACTOR := $(BIN)/protractor
@@ -16,7 +15,6 @@ info:
 	@$(BABEL_NODE) tools/custom/info.js
 
 lint:
-	@$(JSCS) .
 	@$(ESLINT) .
 
 build: info clean
