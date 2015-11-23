@@ -47,7 +47,7 @@ module.exports = function createKarmaConfig(config) {
     },
 
     // test results reporter to use
-    reporters: ['dots'],
+    reporters: ['mocha'],
 
     // web server port
     port: 9876,
