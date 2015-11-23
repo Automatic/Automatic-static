@@ -1,0 +1,16 @@
+{
+  "linters": {
+    "filename": {
+      "type": "filename"
+    },
+    "json": {
+      "type": "json",
+      "include": "(\\.json$)"
+    },
+    "text": {
+      "type": "text",
+      "include": "(\\.(txt|py|html?)$)",
+      "text.max-line-length": 120
+    }
+  }
+}
