@@ -27,7 +27,7 @@ run: info clean build
 watch: info clean
 	@$(BABEL_NODE) tools/custom/run-watch.js
 
-test_unit: clean
+test_unit:
 	@$(KARMA) start
 
 test_e2e:
