@@ -27,8 +27,8 @@ run: info clean build
 watch: info clean
 	@$(BABEL_NODE) tools/custom/run-watch.js
 
-test_unit:
-	@$(KARMA) start --single-run
+test_unit: clean
+	@$(KARMA) start
 
 test_e2e:
 	$(WEBDRIVER_MANAGER) update
@@ -43,3 +43,4 @@ deploy: build
 
 clean:
 	@rm -rf dist/**
+	@rm -f test-results.xml

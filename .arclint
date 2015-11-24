@@ -11,6 +11,12 @@
       "type": "text",
       "include": "(\\.(txt|py|html?)$)",
       "text.max-line-length": 120
+    },
+    "eslint": {
+      "type": "eslint",
+      "include": "(\\.(js|jsx)$)",
+      "exclude": "(^node_modules/)",
+      "bin": "node_modules/.bin/eslint"
     }
   }
 }

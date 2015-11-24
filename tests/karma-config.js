@@ -42,12 +42,18 @@ module.exports = function createKarmaConfig(config) {
       devtool: 'inline-source-map'
     },
 
+    junitReporter: {
+      outputFile: 'test-results.xml',
+      suite: '',
+      useBrowserName: false
+    },
+
     webpackMiddleware: {
       noInfo: true
     },
 
     // test results reporter to use
-    reporters: ['mocha'],
+    reporters: ['mocha', 'junit'],
 
     // web server port
     port: 9876,
@@ -63,6 +69,9 @@ module.exports = function createKarmaConfig(config) {
 
     // start these browsers https://npmjs.org/browse/keyword/karma-launcher
     browsers: settings.IS_TRAVIS ? ['Firefox'] : ['Chrome'],
+
+    // run once or watch continuously
+    singleRun: true,
 
     // concurrency level how many browser should be started simultaneously
     concurrency: Infinity

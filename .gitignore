@@ -1,6 +1,7 @@
 ### Project specific
 .env
 .publish/
+test-results.xml
 
 ### SublimeText template
 # cache files for sublime text

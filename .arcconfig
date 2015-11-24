@@ -1,3 +1,7 @@
 {
-  "conduit_uri": "https://phabricator.automatic.co"
+  "conduit_uri": "https://phabricator.automatic.co",
+  "unit.engine": "CustomKarmaTestEngine",
+  "load": [
+    "tools/arcanist/"
+  ]
 }
