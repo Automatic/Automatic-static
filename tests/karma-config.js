@@ -31,11 +31,11 @@ module.exports = function createKarmaConfig(config) {
           },
           {
             test: /\.css$/,
-            loader: 'style!css!cssnext'
+            loader: 'style!css!postcss'
           },
           {
             test: /\.scss$/,
-            loader: 'style!css!cssnext!sass'
+            loader: 'style!css!postcss!sass'
           }
         ]
       },
