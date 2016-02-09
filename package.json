@@ -12,6 +12,14 @@
   },
   "author": "Yanglin Zhao",
   "license": "ISC",
+  "os" : [
+    "darwin",
+    "linux"
+  ],
+  "engines" : {
+    "node" : ">=4.3.0",
+    "npm": ">=3.7.0"
+  },
   "bugs": {
     "url": "https://github.com/yanglinz/automatic-frontend/issues"
   },
