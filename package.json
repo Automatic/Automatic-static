@@ -26,7 +26,7 @@
   "homepage": "https://github.com/yanglinz/automatic-frontend#readme",
   "dependencies": {
     "jquery": "2.2.0",
-    "lodash": "3.10.1",
+    "lodash": "4.3.0",
     "normalize.css": "3.0.3",
     "react": "0.14.6"
   },

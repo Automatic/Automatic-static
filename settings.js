@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { any, defaults } from 'lodash';
+import { some, defaults } from 'lodash';
 import dotenv from 'dotenv';
 
 dotenv.load({
@@ -21,7 +21,7 @@ const {
   DEPLOY_GITHUB_REMOTE_URL,
   SITE_URL,
   SITE_BASE_PATH
-} = defaults(process.env, {
+} = defaults({}, process.env, {
   ENVIRONMENT: 'local',
   DEV_HOST: 'localhost',
   DEV_PORT: '5000',
@@ -31,7 +31,7 @@ const {
   SITE_BASE_PATH: '/'
 });
 
-const IS_PROD = any([
+const IS_PROD = some([
   NODE_ENV === 'production',
   ENVIRONMENT === 'stage',
   ENVIRONMENT === 'staging',
