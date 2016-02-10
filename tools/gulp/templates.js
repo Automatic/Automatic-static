@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import nunjucks from 'gulp-nunjucks-render';
+import nunjucks from 'gulp-nunjucks';
 import htmlmin from 'gulp-htmlmin';
 import data from 'gulp-data';
 import sitemap from 'gulp-sitemap';
@@ -17,21 +17,22 @@ const htmlminOptions = {
   removeStyleLinkTypeAttributes: true
 };
 
+const templateData = {
+  jsPaths: settings.DEV_HOT_RELOAD ? [
+    `${settings.DEV_WEBPACK_BASE_URL}/vendors.js`,
+    `${settings.DEV_WEBPACK_BASE_URL}/main.js`
+  ] : [
+    '/vendors.js',
+    '/main.js'
+  ],
+  cssPaths: settings.DEV_HOT_RELOAD ? [] : ['/main.css']
+};
+
 function buildNunjuckTemplates() {
-  nunjucks.nunjucks.configure(['src/_templates/'], { watch: settings.DEV_HOT_RELOAD });
   return gulp.src(TEMPLATES_GLOB)
     .pipe(gulpif(settings.DEV_HOT_RELOAD, plumber()))
-    .pipe(data(() => ({
-      jsPaths: settings.DEV_HOT_RELOAD ? [
-        `${settings.DEV_WEBPACK_BASE_URL}/vendors.js`,
-        `${settings.DEV_WEBPACK_BASE_URL}/main.js`
-      ] : [
-        '/vendors.js',
-        '/main.js'
-      ],
-      cssPaths: settings.DEV_HOT_RELOAD ? [] : ['/main.css']
-    })))
-    .pipe(nunjucks())
+    .pipe(data(() => templateData))
+    .pipe(nunjucks.compile())
     .pipe(htmlmin(htmlminOptions))
     .pipe(gulp.dest('dist'));
 }
