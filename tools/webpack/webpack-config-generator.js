@@ -1,10 +1,11 @@
+import path from 'path';
+
 import autoprefixer from 'autoprefixer';
 import { optimize } from 'webpack';
-import path from 'path';
 import precss from 'precss';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
 function makeWebpackConfig() {
   const webpackConfig = {};
@@ -23,7 +24,7 @@ function makeWebpackConfig() {
   webpackConfig.output = {
     path: path.resolve(__dirname, '../../dist'),
     filename: '[name].js',
-    publicPath: settings.DEV_HOT_RELOAD ? `${settings.DEV_WEBPACK_BASE_URL}/` : '/'
+    publicPath: config.DEV_HOT_RELOAD ? `${config.DEV_WEBPACK_BASE_URL}/` : '/'
   };
 
   webpackConfig.module = {
@@ -35,13 +36,13 @@ function makeWebpackConfig() {
       },
       {
         test: /\.css$/,
-        loader: settings.DEV_HOT_RELOAD ?
+        loader: config.DEV_HOT_RELOAD ?
           'style!css!postcss' :
           ExtractTextPlugin.extract('style', 'css!postcss')
       },
       {
         test: /\.scss$/,
-        loader: settings.DEV_HOT_RELOAD ?
+        loader: config.DEV_HOT_RELOAD ?
           'style!css!postcss!sass' :
           ExtractTextPlugin.extract('style', 'css!postcss!sass')
       },
@@ -76,14 +77,14 @@ function makeWebpackConfig() {
 
   webpackConfig.plugins = [
     new optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
-    ...(settings.DEV_HOT_RELOAD ? [] : [
+    ...(config.DEV_HOT_RELOAD ? [] : [
       new ExtractTextPlugin('[name].css'),
       new optimize.UglifyJsPlugin()
     ])
   ];
 
   webpackConfig.devServer = {
-    port: settings.DEV_WEBPACK_SERVER_PORT,
+    port: config.DEV_WEBPACK_SERVER_PORT,
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
@@ -98,7 +99,7 @@ function makeWebpackConfig() {
     }
   };
 
-  webpackConfig.devtool = settings.IS_PROD ? 'source-map' : 'cheap-module-eval-source-map';
+  webpackConfig.devtool = config.IS_PROD ? 'source-map' : 'cheap-module-eval-source-map';
 
   return webpackConfig;
 }

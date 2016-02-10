@@ -1,5 +1,5 @@
 import chalk from 'chalk';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
-console.log(`Running process in ${chalk.bold.green(settings.ENVIRONMENT_NAME)} environment`);
+console.log(`Running process in ${chalk.bold.green(config.ENVIRONMENT_NAME)} environment`);

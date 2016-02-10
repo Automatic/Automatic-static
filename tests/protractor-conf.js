@@ -1,10 +1,10 @@
-import settings from '../settings.js';
+import config from '../config.js';
 
 module.exports = {
-  baseUrl: `http://${settings.DEV_HOST}:${settings.DEV_PORT}`,
+  baseUrl: `http://${config.DEV_HOST}:${config.DEV_PORT}`,
 
   capabilities: {
-    browserName: settings.IS_TRAVIS ? 'firefox' : 'chrome'
+    browserName: config.IS_TRAVIS ? 'firefox' : 'chrome'
   },
 
   framework: 'jasmine',

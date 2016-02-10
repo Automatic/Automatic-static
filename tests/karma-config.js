@@ -1,6 +1,6 @@
 import path from 'path';
 
-import settings from '../settings.js';
+import setting from '../config.js';
 
 module.exports = function createKarmaConfig(config) {
   config.set({
@@ -68,7 +68,7 @@ module.exports = function createKarmaConfig(config) {
     autoWatch: true,
 
     // start these browsers https://npmjs.org/browse/keyword/karma-launcher
-    browsers: settings.IS_TRAVIS ? ['Firefox'] : ['Chrome'],
+    browsers: setting.IS_TRAVIS ? ['Firefox'] : ['Chrome'],
 
     // run once or watch continuously
     singleRun: true,

@@ -6,7 +6,7 @@ import sitemap from 'gulp-sitemap';
 import plumber from 'gulp-plumber';
 import gulpif from 'gulp-if';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
 const TEMPLATES_GLOB = 'src/**/*.html';
 
@@ -18,19 +18,19 @@ const htmlminOptions = {
 };
 
 const templateData = {
-  jsPaths: settings.DEV_HOT_RELOAD ? [
-    `${settings.DEV_WEBPACK_BASE_URL}/vendors.js`,
-    `${settings.DEV_WEBPACK_BASE_URL}/main.js`
+  jsPaths: config.DEV_HOT_RELOAD ? [
+    `${config.DEV_WEBPACK_BASE_URL}/vendors.js`,
+    `${config.DEV_WEBPACK_BASE_URL}/main.js`
   ] : [
     '/vendors.js',
     '/main.js'
   ],
-  cssPaths: settings.DEV_HOT_RELOAD ? [] : ['/main.css']
+  cssPaths: config.DEV_HOT_RELOAD ? [] : ['/main.css']
 };
 
 function buildNunjuckTemplates() {
   return gulp.src(TEMPLATES_GLOB)
-    .pipe(gulpif(settings.DEV_HOT_RELOAD, plumber()))
+    .pipe(gulpif(config.DEV_HOT_RELOAD, plumber()))
     .pipe(data(() => templateData))
     .pipe(nunjucks.compile())
     .pipe(htmlmin(htmlminOptions))
@@ -49,7 +49,7 @@ const SITEMAP_GLOB = [
 function buildSitemap() {
   return gulp.src(SITEMAP_GLOB)
     .pipe(sitemap({
-      siteUrl: settings.SITE_URL
+      siteUrl: config.SITE_URL
     }))
     .pipe(gulp.dest('dist'));
 }

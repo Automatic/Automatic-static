@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 import RevAll from 'gulp-rev-all';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
 function buildFingerprint() {
   const revAll = new RevAll({
-    prefix: settings.SITE_BASE_PATH,
+    prefix: config.SITE_BASE_PATH,
     dontRenameFile: [
       'favicon.ico',
       'sitemap.xml',

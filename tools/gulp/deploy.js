@@ -2,22 +2,22 @@ import { isEmpty } from 'lodash';
 import gulp from 'gulp';
 import ghPages from 'gulp-gh-pages';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
 function deployGithub() {
-  if (isEmpty(settings.DEPLOY_GITHUB_REMOTE_URL)) {
+  if (isEmpty(config.DEPLOY_GITHUB_REMOTE_URL)) {
     throw new Error('Missing DEPLOY_GITHUB_REMOTE_URL when attempting to deploy to github pages');
   }
 
   return gulp.src('dist/**')
     .pipe(ghPages({
-      remoteUrl: settings.DEPLOY_GITHUB_REMOTE_URL
+      remoteUrl: config.DEPLOY_GITHUB_REMOTE_URL
     }));
 }
 
 function deploy() {
   let deployStream;
-  switch (settings.DEPLOY_TARGET) {
+  switch (config.DEPLOY_TARGET) {
     case 'github':
       deployStream = deployGithub();
       break;

@@ -3,7 +3,7 @@ import { spawn } from 'child_process';
 
 import Rx from 'rx';
 
-import settings from '../../settings.js';
+import config from '../../config.js';
 
 const root = path.resolve(__dirname, '../..');
 const bins = path.resolve(root, 'node_modules/.bin');
@@ -42,8 +42,8 @@ function spawnChildProcess(command) {
 
 function spawnHttpServer() {
   const httpServer = path.resolve(bins, 'http-server');
-  let command = `${httpServer} dist -p ${settings.DEV_PORT} -a ${settings.DEV_HOST} -c 0`;
-  command = settings.IS_LOCAL ? `${command} -o` : command;  // open browser on start
+  let command = `${httpServer} dist -p ${config.DEV_PORT} -a ${config.DEV_HOST} -c 0`;
+  command = config.IS_LOCAL ? `${command} -o` : command;  // open browser on start
   return spawnChildProcess(command);
 }
 
