@@ -18,11 +18,11 @@ function deployGithub() {
 function deploy() {
   let deployStream;
   switch (settings.DEPLOY_TARGET) {
-  case 'github':
-    deployStream = deployGithub();
-    break;
-  default:
-    throw new Error('Invalid deploy target');
+    case 'github':
+      deployStream = deployGithub();
+      break;
+    default:
+      throw new Error('Invalid deploy target');
   }
 
   return deployStream;
