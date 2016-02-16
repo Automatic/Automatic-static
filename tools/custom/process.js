@@ -79,7 +79,7 @@ export function runWatch() {
 
       const gulpStdout$ = spawnGulpWatch()[1];
       const gulpWatchReady = gulpStdout$
-        .filter(data => data.toString().includes('Starting \'parallel\''))
+        .filter(data => data.toString().includes('Starting \'<parallel>\''))
         .first()
         .toPromise();
       await gulpWatchReady;
