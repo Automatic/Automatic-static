@@ -1,5 +1,5 @@
 {
-  "name": "automatic-frontend",
+  "name": "automatic-static",
   "version": "1.0.0",
   "description": "Automatic's opinionated frontend static site starter kit",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yanglinz/automatic-frontend.git"
+    "url": "git+https://github.com/yanglinz/automatic-static.git"
   },
   "author": "Yanglin Zhao",
   "license": "ISC",
@@ -21,9 +21,9 @@
     "npm": ">=3.0.0"
   },
   "bugs": {
-    "url": "https://github.com/yanglinz/automatic-frontend/issues"
+    "url": "https://github.com/yanglinz/automatic-static/issues"
   },
-  "homepage": "https://github.com/yanglinz/automatic-frontend#readme",
+  "homepage": "https://github.com/yanglinz/automatic-static#readme",
   "dependencies": {
     "jquery": "2.2.0",
     "lodash": "4.3.0",
