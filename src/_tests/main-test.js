@@ -1,6 +1,6 @@
 import '../main.js';
 
-describe('Smoke test suite', () => {
+describe('smoke test suite', () => {
   it('should assert correctly', () => {
     expect(true).toBe(true);
   });
