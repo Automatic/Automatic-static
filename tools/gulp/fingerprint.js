@@ -6,7 +6,7 @@ import config from '../../config.js';
 function buildFingerprint() {
   const revAll = new RevAll({
     prefix: config.SITE_BASE_PATH,
-    dontRenameFile: [
+    dontGlobal: [
       'favicon.ico',
       'sitemap.xml',
       '.html',
