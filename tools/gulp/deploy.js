@@ -35,7 +35,7 @@ function deployAwsGlobs(artifactsGlob, cacheLength) {
     .pipe(awsPublish.reporter({}));
 }
 
-const longTermCachePatterns = [
+const shortTermCachePatterns = [
   '*.html',
   'favicon.ico',
   'apple-touch-icon.png',
@@ -46,13 +46,13 @@ const longTermCachePatterns = [
 
 gulp.task('deploy:aws:long', () => {
   const oneYear = 31536000;
-  const longTermCacheGlob = `dist/**/+(${longTermCachePatterns.join('|')})`;
+  const longTermCacheGlob = `dist/**/!(${shortTermCachePatterns.join('|')})`;
   return deployAwsGlobs(longTermCacheGlob, oneYear);
 });
 
 gulp.task('deploy:aws:short', () => {
   const fiveMin = 300;
-  const shortTermCacheGlob = `dist/**/!(${longTermCachePatterns.join('|')})`;
+  const shortTermCacheGlob = `dist/**/+(${shortTermCachePatterns.join('|')})`;
   return deployAwsGlobs(shortTermCacheGlob, fiveMin);
 });
 
