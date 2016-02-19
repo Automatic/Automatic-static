@@ -7,11 +7,6 @@
       "type": "json",
       "include": "(\\.json$)"
     },
-    "text": {
-      "type": "text",
-      "include": "(\\.(txt|py|html?)$)",
-      "text.max-line-length": 120
-    },
     "eslint": {
       "type": "eslint",
       "include": "(\\.(js|jsx)$)",
