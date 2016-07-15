@@ -1,4 +1,4 @@
-# Automatic-static
+# [DEPRECATED] Automatic-static
 
 Automatic static is an opinionated starter kit to build and ship static websites. 
 
